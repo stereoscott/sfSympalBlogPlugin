@@ -1,0 +1,5 @@
+# sfSympalBlogPlugin routing
+
+sympal_blog_month:
+  url: /blog/:m/:y
+  param: { module: sympal_blog, action: month }
