@@ -10,17 +10,17 @@ class sfSympalBlogPluginInstall extends sfSympalPluginManagerInstall
 
     $this->saveMenuItem($installVars['menuItem']);
 
-    $contentTemplate = new ContentTemplate();
-    $contentTemplate->name = 'View BlogPost';
-    $contentTemplate->partial_path = 'sympal_blog/view';
-    $contentTemplate->is_default = true;
-    $contentTemplate->ContentType = $installVars['contentType'];
+    $properties = array(
+      'partial_path' => 'sympal_blog/view',
+      'is_default' => true
+    );
+    $contentTemplate = $this->newContentTemplate('View BlogPost', $installVars['contentType'], $properties);
     $contentTemplate->save();
 
-    $contentTemplate = new ContentTemplate();
-    $contentTemplate->name = 'List BlogPost';
-    $contentTemplate->partial_path = 'sympal_blog/list';
-    $contentTemplate->ContentType = $installVars['contentType'];
+    $properties = array(
+      'partial_path' => 'sympal_blog/list'
+    );
+    $contentTemplate = $this->newContentTemplate('List BlogPost', $installVars['contentType'], $properties);
     $contentTemplate->save();
 
     $installVars['contentList']->Template = $contentTemplate;
