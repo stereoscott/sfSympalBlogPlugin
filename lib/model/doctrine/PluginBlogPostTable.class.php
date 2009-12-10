@@ -30,7 +30,19 @@ class PluginBlogPostTable extends Doctrine_Table
 
   public function retrieveMonths()
   {
-    return array(date('Y-m-d'));
+    $results = Doctrine_Core::getTable('Content')
+      ->getTypeQuery('BlogPost')
+      ->select('c.date_published')
+      ->where('c.is_published = 1')
+      ->orderBy('c.date_published DESC')
+      ->execute(array(), Doctrine_Core::HYDRATE_NONE);
+    $months = array();
+    foreach ($results as $result)
+    {
+      $months[] = date('m/1/Y', strtotime($result[0]));
+    }
+    $months = array_unique($months);
+    return $months;
   }
 
   public function retrieveBlogMonth($month, $year)

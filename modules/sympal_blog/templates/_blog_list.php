@@ -1,8 +1,5 @@
-<?php $pagerHtml = get_sympal_pager_navigation($pager, url_for($menuItem->getItemRoute())) ?>
-
 <?php echo get_sympal_pager_header($pager, $content) ?>
 
-<?php echo $pagerHtml ?>
 
 <?php foreach ($content as $content): ?>
   <div class="row">
@@ -18,4 +15,4 @@
   </div>
 <?php endforeach; ?>
 
-<?php echo $pagerHtml ?>
+<?php echo get_sympal_pager_navigation($pager, url_for($menuItem->getItemRoute())) ?>

@@ -23,6 +23,8 @@ class sfSympalBlogPluginInstall extends sfSympalPluginManagerInstall
     $contentTemplate = $this->newContentTemplate('List BlogPost', $installVars['contentType'], $properties);
     $contentTemplate->save();
 
+    $installVars['contentList']->sort_column = 'id';
+    $installVars['contentList']->sort_order = 'DESC';
     $installVars['contentList']->Template = $contentTemplate;
     $installVars['contentList']->save();
   }

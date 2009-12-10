@@ -3,9 +3,8 @@
 <?php echo get_sympal_breadcrumbs($menuItem, $content) ?>
 
 <div id="sympal_blog">
+  <h2><?php echo get_sympal_column_content_slot($content, 'title') ?></h2>
   <div id="view">
-    <h2><?php echo get_sympal_column_content_slot($content, 'title') ?></h2>
-
     <?php echo image_tag($content->CreatedBy->getGravatarUrl(), 'align=right') ?>
 
     <p>
