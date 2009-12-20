@@ -5,24 +5,19 @@
 <div id="sympal_blog">
   <h2><?php echo get_sympal_column_content_slot($content, 'title') ?></h2>
   <div id="view">
-    <?php echo image_tag($content->CreatedBy->getGravatarUrl(), 'align=right') ?>
+    <?php echo image_tag(get_gravatar_url($content->CreatedBy->getEmailAddress()), 'align=right') ?>
 
     <p>
       <strong>
-        Posted by <?php echo get_sympal_column_content_slot($content, 'created_by', 'render_blog_post_author') ?> on 
+        Posted by <?php echo get_sympal_column_content_slot($content, 'created_by_id', 'render_blog_post_author') ?> on 
         <?php echo get_sympal_column_content_slot($content, 'date_published') ?>
       </strong>
     </p>
 
-    <?php if (sfSympalToolkit::isEditMode()): ?>
-      <?php echo get_sympal_column_content_slot($content, 'teaser') ?>
-      <hr/>
-    <?php endif; ?>
-
     <?php echo get_sympal_content_slot($content, 'body', 'Markdown') ?>
   </div>
 
-  <?php if (sfSympalConfig::get('sfSympalCommentsPlugin', 'installed') && sfSympalConfig::get('sfSympalCommentsPlugin', 'enabled') && sfSympalConfig::get('BlogPost', 'enable_comments')): ?>
+  <?php if (sfSympalConfig::get('sfSympalCommentsPlugin', 'installed') && sfSympalConfig::get('sfSympalCommentsPlugin', 'enabled') && sfSympalConfig::get('sfSympalBlogPost', 'enable_comments')): ?>
     <?php use_helper('Comments') ?>
     <?php echo get_sympal_comments($content) ?>
   <?php endif; ?>

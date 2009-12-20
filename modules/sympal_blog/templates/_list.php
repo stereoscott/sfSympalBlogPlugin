@@ -14,10 +14,6 @@
 
     <?php echo get_partial('sympal_blog/blog_list', array('menuItem' => $menuItem, 'pager' => $pager, 'content' => $listResults)) ?>
 
-    <?php if (sfSympalToolkit::isEditMode()): ?>
-      <?php echo link_to('Create New', '@sympal_content_create_type?type='.$content->ContentType->getSlug()) ?>
-    <?php endif; ?>
-
     <?php echo get_sympal_content_slot($content, 'footer') ?>
   </div>
 </div>

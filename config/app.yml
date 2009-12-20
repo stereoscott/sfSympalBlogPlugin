@@ -1,4 +1,4 @@
 all:
   sympal_config:
-    BlogPost:
+    sfSympalBlogPost:
       enable_comments: true

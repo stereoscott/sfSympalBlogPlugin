@@ -12,10 +12,10 @@ abstract class Basesympal_blogActions extends sfActions
 {
   public function executeMonth($request)
   {
-    $this->menuItem = Doctrine::getTable('MenuItem')->getForSlug('blog');
+    $this->menuItem = Doctrine::getTable('sfSympalMenuItem')->getForSlug('blog');
     $this->month = $request->getParameter('m');
     $this->year = $request->getParameter('y');
-    $this->pager = Doctrine::getTable('BlogPost')->retrieveBlogMonth($this->month, $this->year);
+    $this->pager = Doctrine::getTable('sfSympalBlogPost')->retrieveBlogMonth($this->month, $this->year);
     $this->content = $this->pager->getResults();
   }
 }

@@ -12,8 +12,8 @@ abstract class Basesympal_blogComponents extends sfComponents
 {
   public function executeSidebar()
   {
-    $this->latestPosts = Doctrine::getTable('BlogPost')->retrieveLatestPosts(5);
-    $this->authors = Doctrine::getTable('BlogPost')->retrieveTopAuthors(5);
-    $this->months = Doctrine::getTable('BlogPost')->retrieveMonths();
+    $this->latestPosts = Doctrine::getTable('sfSympalBlogPost')->retrieveLatestPosts(5);
+    $this->authors = Doctrine::getTable('sfSympalBlogPost')->retrieveTopAuthors(5);
+    $this->months = Doctrine::getTable('sfSympalBlogPost')->retrieveMonths();
   }
 }

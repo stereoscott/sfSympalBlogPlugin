@@ -4,11 +4,11 @@
 <?php foreach ($content as $content): ?>
   <div class="row">
     <h3><?php echo link_to($content, $content->getRoute()) ?></h3>
-    <?php echo image_tag($content->CreatedBy->getGravatarUrl(), 'align=right') ?>
+    <?php echo image_tag(get_gravatar_url($content->CreatedBy->getEmailAddress()), 'align=right') ?>
     <p class="date">
       <strong>
         Posted by <?php echo $content->CreatedBy->getName() ?> on 
-        <?php echo date('m/d/Y h:i:s', strtotime($content->created_at)) ?>
+        <?php echo date('m/d/Y h:i:s', strtotime($content->getCreatedAt())) ?>
       </strong>
     </p>
     <p class="teaser"><?php echo $content->getRecord()->getTeaser() ?> <strong><small>[<?php echo link_to('read more', $content->getRoute()) ?>]</small></p>
