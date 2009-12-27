@@ -3,14 +3,14 @@
 <?php echo get_sympal_breadcrumbs($menuItem, $content) ?>
 
 <div id="sympal_blog">
-  <h2><?php echo get_sympal_column_content_slot($content, 'title') ?></h2>
+  <h2><?php echo get_sympal_content_slot($content, 'title') ?></h2>
   <div id="view">
     <?php echo image_tag(get_gravatar_url($content->CreatedBy->getEmailAddress()), 'align=right') ?>
 
     <p>
       <strong>
-        Posted by <?php echo get_sympal_column_content_slot($content, 'created_by_id', 'render_blog_post_author') ?> on 
-        <?php echo get_sympal_column_content_slot($content, 'date_published') ?>
+        Posted by <?php echo get_sympal_content_slot($content, 'created_by_id', null, 'render_blog_post_author') ?> on 
+        <?php echo get_sympal_content_slot($content, 'date_published') ?>
       </strong>
     </p>
 

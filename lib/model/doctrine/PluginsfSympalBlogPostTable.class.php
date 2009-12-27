@@ -30,10 +30,11 @@ class PluginsfSympalBlogPostTable extends Doctrine_Table
 
   public function retrieveMonths()
   {
+    $now = new Doctrine_Expression('NOW()');
     $results = Doctrine_Core::getTable('sfSympalContent')
       ->getTypeQuery('sfSympalBlogPost')
       ->select('c.date_published')
-      ->where('c.is_published = 1')
+      ->where('c.date_published >= '.$now)
       ->orderBy('c.date_published DESC')
       ->execute(array(), Doctrine_Core::HYDRATE_NONE);
     $months = array();

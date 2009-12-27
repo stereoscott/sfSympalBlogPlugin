@@ -6,7 +6,7 @@
 
 <div id="sympal_blog">
   <div id="list">
-    <h2><?php echo get_sympal_column_content_slot($content, 'title') ?></h2>
+    <h2><?php echo get_sympal_content_slot($content, 'title') ?></h2>
 
     <?php echo get_sympal_content_slot($content, 'header') ?>
 
