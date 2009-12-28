@@ -8,7 +8,7 @@
     <p class="date">
       <strong>
         Posted by <?php echo $content->CreatedBy->getName() ?> on 
-        <?php echo date('m/d/Y h:i:s', strtotime($content->getCreatedAt())) ?>
+        <?php echo format_datetime($content->date_published) ?>
       </strong>
     </p>
     <p class="teaser"><?php echo $content->getRecord()->getTeaser() ?> <strong><small>[<?php echo link_to('read more', $content->getRoute()) ?>]</small></p>
