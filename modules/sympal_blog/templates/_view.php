@@ -9,8 +9,8 @@
 
     <p>
       <strong>
-        Posted by <?php echo get_sympal_content_slot($content, 'created_by_id', null, 'render_blog_post_author') ?> on 
-        <?php echo get_sympal_content_slot($content, 'date_published', null, 'render_blog_post_date_published') ?>
+        Posted by <?php echo get_sympal_content_slot($content, 'created_by_id', null, 'render_content_author') ?> on 
+        <?php echo get_sympal_content_slot($content, 'date_published', null, 'render_content_date_published') ?>
       </strong>
     </p>
 
