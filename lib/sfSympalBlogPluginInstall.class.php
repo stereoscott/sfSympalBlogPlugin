@@ -6,7 +6,7 @@ class sfSympalBlogPluginInstall extends sfSympalPluginManagerInstall
   {
     $installVars['content']['sfSympalBlogPost']['teaser'] = 'This is the teaser line for the sample blog post';
     $installVars['content']->save();
-    $installVars['contentType']->setTemplate('sympal_blog/view');
+    $installVars['contentType']->setTemplate('default_view');
     $installVars['contentType']->save();
 
     $installVars['menuItem']['label'] = 'Blog';
