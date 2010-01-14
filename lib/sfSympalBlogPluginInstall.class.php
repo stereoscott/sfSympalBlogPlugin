@@ -9,6 +9,11 @@ class sfSympalBlogPluginInstall extends sfSympalPluginManagerInstall
     $installVars['contentType']->setTemplate('default_view');
     $installVars['contentType']->save();
 
+    $slot = $installVars['content']->getOrCreateSlot('body', 'Markdown');
+    $slot->setValue(sfSympalLorem::getMarkdownLorem(1));
+    $slot->save();
+
+    $installVars['menuItem']['name'] = 'Blog';
     $installVars['menuItem']['label'] = 'Blog';
 
     $this->saveMenuItem($installVars['menuItem']);
