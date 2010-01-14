@@ -1,11 +1,11 @@
 all:
   sympal_config:
-    sfSympalBlogPost:
+    blog:
       enable_comments: true
       content_templates:
         default_view:
           template: sympal_blog/view
-    sfSympalContentList:
+    content-list:
       content_templates:
         blog_post_list:
           template: sympal_blog/list
