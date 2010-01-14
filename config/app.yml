@@ -1,6 +1,6 @@
 all:
   sympal_config:
-    blog:
+    blog-post:
       enable_comments: true
       content_templates:
         default_view:
