@@ -1,6 +1,6 @@
 <?php use_stylesheet('/sfSympalBlogPlugin/css/blog.css', 'first') ?>
-
 <?php echo get_sympal_breadcrumbs($menuItem, $date = date('M Y', strtotime($month.'/01/'.$year))) ?>
+<?php $sf_response->setTitle('Posts for the month of ' . $date) ?>
 
 <div id="sympal_blog">
   <div class="list">
