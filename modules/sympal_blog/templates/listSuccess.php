@@ -1,10 +1,10 @@
 <?php use_stylesheet('/sfSympalBlogPlugin/css/blog.css', 'first') ?>
-<?php echo get_sympal_breadcrumbs($menuItem, $date = date('M Y', strtotime($month.'/01/'.$year))) ?>
-<?php $sf_response->setTitle('Posts for the month of ' . $date) ?>
+<?php echo get_sympal_breadcrumbs($menuItem, $breadcrumbsTitle) ?>
+<?php $sf_response->setTitle($title) ?>
 
 <div id="sympal_blog">
   <div class="list">
-    <h2>Posts for the month of <?php echo $date ?></h2>
+    <h2><?php echo $title ?></h2>
 
     <?php echo get_partial('sympal_blog/blog_list', array('pager' => $pager, 'menuItem' => $menuItem, 'content' => $content)) ?>
   </div>
