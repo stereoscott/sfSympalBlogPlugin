@@ -1,9 +1,9 @@
-<?php use_stylesheet('/sfSympalBlogPlugin/css/blog.css') ?>
+<?php use_stylesheet('/sfSympalBlogPlugin/css/blog.css', 'first') ?>
 
 <?php echo get_sympal_breadcrumbs($menuItem, $date = date('M Y', strtotime($month.'/01/'.$year))) ?>
 
 <div id="sympal_blog">
-  <div id="list">
+  <div class="list">
     <h2>Posts for the month of <?php echo $date ?></h2>
 
     <?php echo get_partial('sympal_blog/blog_list', array('pager' => $pager, 'menuItem' => $menuItem, 'content' => $content)) ?>

@@ -1,10 +1,10 @@
 <?php use_stylesheet('/sfSympalBlogPlugin/css/blog.css') ?>
 
-<?php echo get_sympal_breadcrumbs($menuItem, $content) ?>
+<?php echo get_sympal_breadcrumbs($menuItem) ?>
 
 <div id="sympal_blog">
   <h2><?php echo get_sympal_content_slot($content, 'title') ?></h2>
-  <div id="view">
+  <div class="view">
     <?php echo image_tag(get_gravatar_url($content->CreatedBy->getEmailAddress()), 'align=right') ?>
 
     <p>

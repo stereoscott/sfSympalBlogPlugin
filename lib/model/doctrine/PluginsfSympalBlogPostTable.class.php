@@ -28,21 +28,39 @@ class PluginsfSympalBlogPostTable extends Doctrine_Table
     return $q->execute();
   }
 
+  /**
+   * Returns an array of months in which posts were published. The array
+   * takes the format:
+   * array(
+   *  'm/1/Y' => # of posts that month
+   * );
+   * 
+   * @return array
+   */
   public function retrieveMonths()
   {
     $now = new Doctrine_Expression('NOW()');
     $results = Doctrine_Core::getTable('sfSympalContent')
       ->getTypeQuery('sfSympalBlogPost')
       ->select('c.date_published')
-      ->where('c.date_published >= '.$now)
+      ->where('c.date_published <= '.$now)
       ->orderBy('c.date_published DESC')
       ->execute(array(), Doctrine_Core::HYDRATE_NONE);
     $months = array();
+    
     foreach ($results as $result)
     {
-      $months[] = date('m/1/Y', strtotime($result[0]));
+      $month = date('m/1/Y', strtotime($result[0]));
+      if (!isset($months[$month]))
+      {
+        $months[$month] = 1;
+      }
+      else
+      {
+        $months[$month]++;
+      }
     }
-    $months = array_unique($months);
+    
     return $months;
   }
 

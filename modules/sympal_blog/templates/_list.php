@@ -1,11 +1,11 @@
 <?php use_stylesheet('/sfSympalBlogPlugin/css/blog.css') ?>
 
-<?php echo get_sympal_breadcrumbs($menuItem, null, null, true) ?>
+<?php echo get_sympal_breadcrumbs($menuItem) ?>
 
 <?php echo auto_discovery_link_tag('rss', $content->getRoute().'?sf_format=rss') ?>
 
 <div id="sympal_blog">
-  <div id="list">
+  <div class="list">
     <h2><?php echo get_sympal_content_slot($content, 'title') ?></h2>
 
     <?php echo get_sympal_content_slot($content, 'header') ?>
