@@ -1,4 +1,4 @@
-<?php use_stylesheet('/sfSympalBlogPlugin/css/blog.css') ?>
+<?php use_stylesheet('/sfSympalBlogPlugin/css/blog.css', 'first') ?>
 
 <?php echo get_sympal_breadcrumbs($menuItem) ?>
 
