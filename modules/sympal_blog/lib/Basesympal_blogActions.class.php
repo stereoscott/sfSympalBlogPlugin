@@ -10,12 +10,15 @@
  */
 abstract class Basesympal_blogActions extends sfActions
 {
-  public function executeMonth($request)
+  /**
+   * An action that filters posts by year and month
+   */
+  public function executeMonth(sfWebRequest $request)
   {
     $month = $request->getParameter('m');
     $year = $request->getParameter('y');
     
-    $this->menuItem = Doctrine::getTable('sfSympalMenuItem')->findOneBySlug('blog');
+    $this->menuItem = $this->getBlogMenuItem();
     $this->pager = Doctrine::getTable('sfSympalBlogPost')->retrieveBlogMonth($month, $year);
     $this->content = $this->pager->getResults();
     
@@ -24,5 +27,38 @@ abstract class Basesympal_blogActions extends sfActions
     $this->title = 'Posts for the month of ' . $this->breadcrumbsTitle;
     
     $this->setTemplate('list');
+  }
+  
+  /**
+   * An action that filters posts by tags. This requires the sfSympalTagsPlugin
+   */
+  public function executeTag(sfWebRequest $request)
+  {
+    if (!in_array('sfSympalBlogPlugin', $this->getSympalContext()->getSympalConfiguration()->getInstalledPlugins()))
+    {
+      throw new sfException('sympal_blog/tag action requires sfSympalBlogPlugin to be installed');
+    }
+    
+    $tag = $request->getParameter('tag');
+    
+    $this->menuItem = $this->getBlogMenuItem();
+    $this->pager = Doctrine::getTable('sfSympalTag')->retrieveContentByTag('sfSympalBlogPost', $tag);
+    $this->content = $this->pager->getResults();
+  
+    $this->breadcrumbsTitle = sprintf('Posts tagged with "%s"', $tag);
+    $this->title = $this->breadcrumbsTitle;
+    
+    $this->setTemplate('list');
+  }
+  
+  /**
+   * Returns the default blog menu item so that the breadcrumbs can be
+   * properly rendered
+   * 
+   * @return sfSympalMenuItem
+   */
+  protected function getBlogMenuItem()
+  {
+    return Doctrine::getTable('sfSympalMenuItem')->findOneBySlug('blog');
   }
 }
