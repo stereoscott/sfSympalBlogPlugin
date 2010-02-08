@@ -45,8 +45,8 @@ abstract class Basesympal_blogActions extends sfActions
     $this->pager = Doctrine::getTable('sfSympalTag')->retrieveContentByTag('sfSympalBlogPost', $tag);
     $this->content = $this->pager->getResults();
   
-    $this->breadcrumbsTitle = sprintf('Posts tagged with "%s"', $tag);
-    $this->title = $this->breadcrumbsTitle;
+    $this->breadcrumbsTitle = $tag;
+    $this->title = sprintf('Posts tagged with "%s"', $tag);
     
     $this->setTemplate('list');
   }
