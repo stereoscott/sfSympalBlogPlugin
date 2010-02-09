@@ -8,7 +8,7 @@
     <p class="date">
       <strong>
         Posted by <?php echo $content->CreatedBy->getName() ?> on 
-        <?php echo format_datetime($content->date_published) ?>
+        <?php echo format_datetime($content->date_published, sfSympalConfig::get('date_published_format')) ?>
       </strong>
     </p>
     <p class="teaser"><?php echo $content->getRecord()->getTeaser() ?> <strong><small>[<?php echo link_to('read more', $content->getRoute()) ?>]</small></strong></p>
