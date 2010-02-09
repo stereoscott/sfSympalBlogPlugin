@@ -21,7 +21,6 @@ abstract class Basesympal_blogActions extends sfActions
     $this->menuItem = $this->getBlogMenuItem();
     $this->pager = Doctrine::getTable('sfSympalBlogPost')->retrieveBlogMonth($month, $year);
     $this->content = $this->pager->getResults();
-    
 
     $this->breadcrumbsTitle = date('M Y', strtotime($month.'/01/'.$year));
     $this->title = 'Posts for the month of ' . $this->breadcrumbsTitle;
@@ -41,8 +40,15 @@ abstract class Basesympal_blogActions extends sfActions
     
     $tag = $request->getParameter('tag');
     
+    // setup the page
+    $q = Doctrine::getTable('sfSympalTag')->getContentQueryByTag('sfSympalBlogPost', $tag);
+    $q->orderBy('c.date_published DESC');
+    
+    $this->pager = new sfDoctrinePager('sfSympalContent', sfSympalConfig::get('rows_per_page'));
+    $this->pager->setQuery($q);
+    $this->pager->init();
+    
     $this->menuItem = $this->getBlogMenuItem();
-    $this->pager = Doctrine::getTable('sfSympalTag')->retrieveContentByTag('sfSympalBlogPost', $tag);
     $this->content = $this->pager->getResults();
   
     $this->breadcrumbsTitle = $tag;
