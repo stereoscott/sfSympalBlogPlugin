@@ -33,7 +33,7 @@ abstract class Basesympal_blogActions extends sfActions
    */
   public function executeTag(sfWebRequest $request)
   {
-    if (!in_array('sfSympalBlogPlugin', $this->getSympalContext()->getSympalConfiguration()->getInstalledPlugins()))
+    if (!in_array('sfSympalBlogPlugin', $this->getSympalContext()->getSympalConfiguration()->getDownloadedPlugins()))
     {
       throw new sfException('sympal_blog/tag action requires sfSympalBlogPlugin to be installed');
     }
