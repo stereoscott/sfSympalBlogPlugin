@@ -7,14 +7,14 @@
   <div class="view">
     <?php echo image_tag(get_gravatar_url($content->CreatedBy->getEmailAddress()), 'align=right') ?>
 
-    <p>
-      <strong>
-        Posted by <?php echo get_sympal_content_slot($content, 'created_by_id', null, 'render_content_author') ?> on 
-        <?php echo get_sympal_content_slot($content, 'date_published', null, 'render_content_date_published') ?>
-      </strong>
-    </p>
-
-    <?php echo get_sympal_content_slot($content, 'body', 'Markdown') ?>
+    <strong>
+      Posted by <?php echo get_sympal_content_slot($content, 'created_by_id', null, 'render_content_author') ?> on 
+      <?php echo get_sympal_content_slot($content, 'date_published', null, 'render_content_date_published') ?>
+    </strong>
+    
+    <div>
+      <?php echo get_sympal_content_slot($content, 'body', 'Markdown') ?>
+    </div>
   </div>
 
   <?php if (sfSympalConfig::get('sfSympalCommentsPlugin', 'installed') && sfSympalConfig::get('sfSympalCommentsPlugin', 'enabled') && sfSympalConfig::get('sfSympalBlogPost', 'enable_comments')): ?>
