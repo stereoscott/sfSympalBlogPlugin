@@ -66,9 +66,9 @@ class PluginsfSympalBlogPostTable extends Doctrine_Table
 
   public function retrieveBlogMonth($month, $year)
   {
-    $start = date('Y-m-d', strtotime($month.'/01/'.$year));
-    $end = date('Y-m-d', strtotime($start.' +1 month'));
-    $end = date('Y-m-d', strtotime($end.' -1 day'));
+    $start = date('Y-m-d H:i:s', strtotime($month.'/01/'.$year));
+    $end = date('Y-m-d H:i:s', strtotime($start.' +1 month'));
+    $end = date('Y-m-d H:i:s', strtotime($end.' -1 day'));
     $dates = array($start, $end);
 
     Doctrine::getTable('sfSympalBlogPost');
@@ -77,7 +77,7 @@ class PluginsfSympalBlogPostTable extends Doctrine_Table
       ->createQuery('e')
       ->innerJoin('e.sfSympalBlogPost p')
       ->innerJoin('e.Type t2')
-      ->where('e.date_published > ? AND e.date_published < ?', $dates);
+      ->where('e.date_published >= ? AND e.date_published <= ?', $dates);
     
     $pager = new sfDoctrinePager('sfSympalContent', sfSympalConfig::get('rows_per_page'));
     $pager->setQuery($q);
