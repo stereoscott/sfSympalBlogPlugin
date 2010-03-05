@@ -19,10 +19,10 @@ class PluginsfSympalBlogPostTable extends Doctrine_Table
     $userTable = Doctrine::getTable('sfGuardUser');
     $q = $userTable
       ->createQuery('u')
-      ->select('*, count(uc.id) as num_posts')
+      ->select('u.id, count(uc.id) as num_posts')
       ->innerJoin('u.CreatedContent uc')
-      ->innerJoin('uc.Type t WITH t.name = ?', 'sfSympalBlogPost')
-      ->groupBy(implode(', ', $userTable->getFieldNames())) 
+      ->innerJoin(sprintf("uc.Type t WITH t.name = '%s'", 'sfSympalBlogPost'))
+      ->groupBy('u.id')
       ->limit($num);
 
     return $q->execute();
