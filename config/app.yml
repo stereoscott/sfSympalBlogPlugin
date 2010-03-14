@@ -5,6 +5,13 @@ all:
       content_templates:
         default_view:
           template: sympal_blog/view
+      content_slots:
+        title:
+          type:      Text
+          edit_mode: in-place
+        body:
+          type:      Markdown
+          edit_mode: in-place
       sidebar:
         # The widgets (and the order) that will be displayed. Defaults to ALL widgets
         #display:      [latest_posts, top_authors, monthly_history]
