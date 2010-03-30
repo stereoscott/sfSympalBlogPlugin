@@ -1,5 +1,7 @@
 all:
   sympal_config:
+    internationalized_models:
+      sfSympalBlogPost: [title, teaser]
     blog-post:
       enable_comments: true
       content_templates:
