@@ -9,7 +9,7 @@ class sfSympalBlogPluginInstall extends sfSympalPluginManagerInstall
     $installVars['contentType']->setTemplate('default_view');
     $installVars['contentType']->save();
 
-    $slot = $installVars['content']->getOrCreateSlot('body', 'Markdown');
+    $slot = $installVars['content']->getOrCreateSlot('body', array('type' => 'Markdown'));
     $slot->setValue(sfSympalLorem::getMarkdownLorem(1));
     $slot->save();
 
