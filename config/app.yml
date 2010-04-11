@@ -2,18 +2,8 @@ all:
   sympal_config:
     internationalized_models:
       sfSympalBlogPost: [title, teaser]
-    sfSympalBlogPost:
-      enable_comments: true
-      content_templates:
-        default_view:
-          template: sympal_blog/view
-      content_slots:
-        title:
-          type:      Text
-          edit_mode: inline
-        body:
-          type:      Markdown
-          edit_mode: inline
+
+    blog:
       sidebar:
         # The widgets (and the order) that will be displayed. Defaults to ALL widgets
         #display:      [latest_posts, top_authors, monthly_history]
@@ -22,7 +12,21 @@ all:
           top_authors:  sympal_blog/top_authors
           monthly_history: sympal_blog/monthly_history
           #my_sidebar_widget: template: my_module/sidebar
-    sfSympalContentList:
-      content_templates:
-        blog_post_list:
-          template: sympal_blog/list
+
+    content_types:
+      sfSympalBlogPost:
+        enable_comments: true
+        content_templates:
+          default_view:
+            template: sympal_blog/view
+        content_slots:
+          title:
+            type:      Text
+            edit_mode: inline
+          body:
+            type:      Markdown
+            edit_mode: inline
+      sfSympalContentList:
+        content_templates:
+          blog_post_list:
+            template: sympal_blog/list

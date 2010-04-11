@@ -12,7 +12,7 @@ abstract class Basesympal_blogComponents extends sfComponents
 {
   public function executeSidebar()
   {
-    $config = sfSympalConfig::get('sfSympalBlogPost', 'sidebar', array());
+    $config = sfSympalConfig::get('blog', 'sidebar', array());
     
     if (isset($config['display']))
     {
