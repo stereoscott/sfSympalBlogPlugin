@@ -14,6 +14,7 @@ class sfSympalBlogPluginInstall extends sfSympalPluginManagerInstall
     $slot->save();
 
     $installVars['menuItem']['name'] = 'Blog';
+    $installVars['menuItem']['label'] = 'Blog';
 
     $this->saveMenuItem($installVars['menuItem']);
 
