@@ -6,7 +6,7 @@ sfSympalContentType:
     label: Blog Post
     template: default_view
 <?php if (sfSympalConfig::isI18nEnabled('ContentType')): ?> 
-    default_path: /pages/:sf_culture/:slug
+    default_path: /blog-post/:sf_culture/:slug
 <?php else: ?>
-    default_path: /pages/:slug
+    default_path: /blog-post/:slug
 <?php endif; ?>
