@@ -10,4 +10,9 @@
  */
 abstract class PluginsfSympalBlogPostTranslationForm extends BasesfSympalBlogPostTranslationForm
 {
+  public function setup()
+  {
+    parent::setup();
+    $this->widgetSchema['title'] = new sfWidgetFormInputText(array(), array('size' => '50%'));
+  }
 }

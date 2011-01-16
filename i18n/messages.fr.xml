@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd" >
+<xliff version="1.0">
+  <file original="global" source-language="en" datatype="plaintext">
+    <header/>
+    <body>
+      <trans-unit>
+        <source>Posted by %s - Not yet published</source>
+        <target>Posté par %s - Pas encore publié</target>
+      </trans-unit>
+      <trans-unit>
+        <source>View Blog post</source>
+        <target>Voir le billet</target>
+      </trans-unit>
+      <trans-unit>
+        <source>New Blog post</source>
+        <target>Ajouter un billet</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Create New Blog post</source>
+        <target>Créer un nouveau billet</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Edit Blog post</source>
+        <target>Éditer le billet</target>
+      </trans-unit>
+
+      <!-- sidebar -->
+      <trans-unit>
+        <source>Authors</source>
+        <target>Auteurs</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Latest posts</source>
+        <target>Derniers billets</target>
+      </trans-unit>
+      <trans-unit>
+        <source>History</source>
+        <target>Historique</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Posts for the month of %s</source>
+        <target>Billets pour le mois de %s</target>
+      </trans-unit>
+      <trans-unit>
+        <source>read more</source>
+        <target>lire...</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Posted by %s on %s</source>
+        <target>Publié par %s le %s</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Blog post</source>
+        <target>Billets</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Blog post list</source>
+        <target>Liste de billets</target>
+      </trans-unit>
+      <trans-unit>
+        <source>One result found.</source>
+        <target>Un résultat.</target>
+      </trans-unit>
+      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

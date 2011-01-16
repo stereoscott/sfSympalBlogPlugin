@@ -1,15 +1,14 @@
-<?php sympal_use_stylesheet('/sfSympalBlogPlugin/css/blog.css', 'first') ?>
 <?php echo get_sympal_breadcrumbs($menuItem, $breadcrumbsTitle) ?>
+
 <?php $sf_response->setTitle($title) ?>
 
-<div id="sympal_blog">
-  <div class="list">
-    <h2><?php echo $title ?></h2>
-
-    <?php echo get_partial('sympal_blog/blog_list', array('pager' => $pager, 'menuItem' => $menuItem, 'content' => $content)) ?>
-  </div>
+<div id="two-columns">
+    <div class="box bottom">
+        <h2><?php echo $title ?></h2>
+        <?php echo get_partial('sympal_blog/blog_list', array('pager' => $pager, 'menuItem' => $menuItem, 'contents' => $contents)) ?>
+    </div>
 </div>
 
-<?php slot('sympal_right_sidebar') ?>
-  <?php echo get_component('sympal_blog', 'sidebar') ?>
+<?php slot('sidebar') ?>
+    <?php echo get_component('sympal_blog', 'sidebar') ?>
 <?php end_slot() ?>

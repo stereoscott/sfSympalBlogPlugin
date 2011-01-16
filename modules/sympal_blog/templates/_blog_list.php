@@ -1,19 +1,29 @@
-<?php use_helper('SympalPager') ?>
-<?php echo get_sympal_pager_header($pager, $content) ?>
+<?php echo get_sympal_pager_header($pager, $contents) ?>
 
+<?php foreach ($contents as $content): ?>
 
-<?php foreach ($content as $content): ?>
-  <div class="row">
-    <h3><?php echo link_to($content, $content->getRoute()) ?></h3>
-    <?php echo image_tag(get_gravatar_url($content->CreatedBy->getEmailAddress()), 'align=right') ?>
-    <p class="date">
-      <strong>
-        Posted by <?php echo $content->CreatedBy->getName() ?> on 
-        <?php echo format_datetime($content->date_published, sfSympalConfig::get('date_published_format')) ?>
-      </strong>
+    <h3><?php echo link_to($content->getHeaderTitle(), $content->getRoute()) ?></h3>
+
+    <p class="small bottom">
+        <?php if($content->isPublished()): ?>
+            <?php echo sprintf(__('Posted by %s on %s'), $content->CreatedBy->getName(), format_datetime($content->date_published, sfSympalConfig::get('date_published_format'))) ?>
+        <?php else: ?>
+            <?php echo sprintf(__('Posted by %s - Not yet published'), $content->CreatedBy->getName()) ?>
+        <?php endif; ?>
     </p>
-    <p class="teaser"><?php echo $content->getRecord()->getTeaser() ?> <strong><small>[<?php echo link_to('read more', $content->getRoute()) ?>]</small></strong></p>
-  </div>
+
+    <?php $teaser = $content->getRecord()->getTeaser(); ?>
+
+    <?php $Filter = new sfContentFilterMarkdown(); ?>
+    <?php if('' == $teaser): ?>
+        <?php $teaser = substr(strip_tags($Filter->filter($content->getSlot('body')->render())), 0, 500); ?>
+    <?php else: ?>
+        <?php $teaser = $Filter->filter($teaser); ?>
+    <?php endif; ?>
+
+    <p><?php echo $teaser ?> [<?php echo link_to(__('read more'), $content->getRoute()) ?>]</p>
 <?php endforeach; ?>
 
-<?php echo get_sympal_pager_navigation($pager, url_for($menuItem->getItemRoute())) ?>
+<?php (is_object($menuItem)) ? $route = $menuItem->getItemRoute() : $route = '' ?>
+
+<?php echo get_sympal_pager_navigation($pager, url_for($route)) ?>

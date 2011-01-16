@@ -2,23 +2,23 @@ all:
   sympal_config:
     internationalized_models:
       sfSympalBlogPost: [title, teaser]
-
     blog:
+      post_history: 20
       sidebar:
         # The widgets (and the order) that will be displayed. Defaults to ALL widgets
-        #display:      [latest_posts, top_authors, monthly_history]
+        display: [latest_posts, monthly_history, toc]
         widgets:
           latest_posts: sympal_blog/latest_posts
-          top_authors:  sympal_blog/top_authors
           monthly_history: sympal_blog/monthly_history
+          toc: sympal_blog/toc
           #my_sidebar_widget: template: my_module/sidebar
-
     content_types:
       sfSympalBlogPost:
-        enable_comments: true
         content_templates:
           default_view:
             template: sympal_blog/view
+          view_with_comments:
+            template: sympal_blog/view_with_comments
         content_slots:
           title:
             type:      Text
@@ -30,3 +30,5 @@ all:
         content_templates:
           blog_post_list:
             template: sympal_blog/list
+    sfSympalBlogPlugin:
+      enable_comments: true
