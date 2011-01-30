@@ -6,7 +6,7 @@ all:
       post_history: 20
       sidebar:
         # The widgets (and the order) that will be displayed. Defaults to ALL widgets
-        display: [latest_posts, monthly_history, toc]
+        display: [toc, latest_posts, monthly_history]
         widgets:
           latest_posts: sympal_blog/latest_posts
           monthly_history: sympal_blog/monthly_history

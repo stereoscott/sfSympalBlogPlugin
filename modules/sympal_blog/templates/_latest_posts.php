@@ -8,13 +8,3 @@
         </ul>
     </div>
 </div>
-
-<script type="text/javascript">
-/*<![CDATA[*/
-    $('#latests-post h2').show();
-    $('#latests-post h2').css('cursor', 'pointer');
-    $('#latests-post > h2').click(function(){
-        $('#latests-post-content').toggle();
-    });
-/*]]>*/
-</script>

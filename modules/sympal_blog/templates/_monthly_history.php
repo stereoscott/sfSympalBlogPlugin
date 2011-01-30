@@ -8,12 +8,3 @@
         </ul>
     </div>
 </div>
-<script type="text/javascript">
-/*<![CDATA[*/
-    $('#monthly-historic h2').show();
-    $('#monthly-historic h2').css('cursor', 'pointer');
-    $('#monthly-historic > h2').click(function(){
-        $('#monthly-historic-content').toggle();
-    });
-/*]]>*/
-</script>

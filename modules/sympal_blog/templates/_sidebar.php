@@ -1,6 +1,13 @@
 <div id="sidebar" class="box bottom">
 
-    <?php echo image_tag('/sfSympalPlugin/lib/sidebar/images/info.png', array('id' => 'sidebar-info-icon')); ?>
+    <?php slot('breadcrumbs') ?>
+        <?php echo get_sympal_breadcrumbs(array(
+          'Home' => '@homepage',
+          'Blog' => ''
+        )) ?>
+    <?php end_slot() ?>
+
+    <div id="sidebar-info-icon">&nbsp;</div>
 
     <div id="sidebar-content">
 
@@ -11,13 +18,3 @@
     </div>
 
 </div>
-
-<script type="text/javascript">
-/*<![CDATA[*/
-    $('#sidebar-info-icon').css('cursor', 'pointer');
-    $('#sidebar-info-icon').click(function() {
-        $('#sidebar-content').toggle();
-    });
-    $('#sidebar-content').hide();
-/*]]>*/
-</script>

@@ -1,6 +1,5 @@
-<?php echo get_sympal_breadcrumbs($menuItem) ?>
-
 <div id="two-columns">
+
     <div class="box bottom">
         <h1><?php echo $sf_sympal_content->getTitle(); ?></h1>
         <p class="quiet">
@@ -8,7 +7,9 @@
         </p>
         <?php echo get_sympal_content_slot('body') ?>
     </div>
+
 </div>
+
 <?php slot('sidebar') ?>
     <?php echo get_component('sympal_blog', 'sidebar') ?>
 <?php end_slot() ?>
