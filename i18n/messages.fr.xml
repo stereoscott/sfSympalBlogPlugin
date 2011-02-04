@@ -4,6 +4,15 @@
   <file original="global" source-language="en" datatype="plaintext">
     <header/>
     <body>
+      <!-- breadcrumbs -->
+      <trans-unit>
+          <source>Home</source>
+          <target>Accueil</target>
+      </trans-unit>
+      <trans-unit>
+          <source>Blog</source>
+          <target>Billets</target>
+      </trans-unit>
       <trans-unit>
         <source>Posted by %s - Not yet published</source>
         <target>Posté par %s - Pas encore publié</target>
