@@ -52,17 +52,17 @@ class PluginsfSympalBlogPostTable extends Doctrine_Table
             ->where('c.date_published <= '.$now)
             ->orderBy('c.date_published DESC')
             ->execute(array(), Doctrine_Core::HYDRATE_NONE);
-        $months = array();
 
+        $months = array();
         foreach ($results as $result)
         {
             $month = date('m/1/Y', strtotime($result[0]));
-            if (!isset($months[$month]))
-            {
+            if (!isset($months[$month])) {
+
                 $months[$month] = 1;
-            }
-            else
-            {
+
+            } else {
+
                 $months[$month]++;
             }
         }
