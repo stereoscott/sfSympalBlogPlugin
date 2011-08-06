@@ -7,6 +7,7 @@
         )) ?>
     <?php end_slot() ?>
 
+    <div id="sidebar-theme-icon">&nbsp;</div>
     <div id="sidebar-info-icon">&nbsp;</div>
 
     <div id="sidebar-content">
