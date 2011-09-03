@@ -1,4 +1,4 @@
-<?php echo get_sympal_breadcrumbs($menuItem, $breadcrumbsTitle) ?>
+<?php //echo get_sympal_breadcrumbs($menuItem, $breadcrumbsTitle) ?>
 
 <?php $sf_response->setTitle($title) ?>
 
