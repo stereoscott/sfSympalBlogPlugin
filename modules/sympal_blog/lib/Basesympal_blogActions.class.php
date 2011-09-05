@@ -39,4 +39,21 @@ abstract class Basesympal_blogActions extends sfActions
     {
         return Doctrine::getTable('sfSympalMenuItem')->findOneBySlug('blog');
     }
+
+    /**
+     *    * An action that filters posts by tags. This requires the sfSympalTagsPlugin
+     *       */
+    public function executeTag(sfWebRequest $request)
+    {
+        $tag = $request->getParameter('tag');
+
+        $this->menuItem = $this->getBlogMenuItem();
+        $this->pager = Doctrine_Core::getTable('sfSympalTag')->retrieveContentByTag('sfSympalBlogPost', $tag);
+        $this->content = $this->pager->getResults();
+
+        $this->breadcrumbsTitle = sprintf(__('Posts tagged with "%s"'), $tag);
+        $this->title = $this->breadcrumbsTitle;
+
+        $this->setTemplate('list');
+    }
 }

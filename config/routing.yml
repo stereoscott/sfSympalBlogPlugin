@@ -5,3 +5,7 @@ sympal_blog_month:
   requirements:
     m:    \d+
     y:    \d+
+
+sympal_blog_tag:
+  url: /blog/tags/:tag
+  param: { module: sympal_blog, action: tag }

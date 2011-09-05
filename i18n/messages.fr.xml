@@ -3,6 +3,10 @@
     <file original="global" source-language="en" datatype="plaintext" xml:space="default">
         <header/>
         <body>
+            <trans-unit>
+                <source>Posts tagged with "%s"</source>
+                <target>Billets marqués avec "%s"</target>
+            </trans-unit>
             <!-- breadcrumbs -->
             <trans-unit>
                 <source>Home</source>

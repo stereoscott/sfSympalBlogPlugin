@@ -6,11 +6,12 @@ all:
       post_history: 20
       sidebar:
         # The widgets (and the order) that will be displayed. Defaults to ALL widgets
-        display: [toc, latest_posts, monthly_history]
+        display: [toc, latest_posts, monthly_history, tags]
         widgets:
           latest_posts: sympal_blog/latest_posts
           monthly_history: sympal_blog/monthly_history
           toc: sympal_blog/toc
+          tags: sympal_tags/blog_popular_tags
           #my_sidebar_widget: template: my_module/sidebar
     content_types:
       sfSympalBlogPost:
