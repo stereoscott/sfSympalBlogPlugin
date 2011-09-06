@@ -1,7 +1,5 @@
 <?php //echo get_sympal_breadcrumbs($menuItem, $breadcrumbsTitle) ?>
 
-<?php $sf_response->setTitle($title) ?>
-
 <div id="two-columns">
 
     <div class="box bottom">
