@@ -73,7 +73,7 @@ abstract class Basesympal_blogActions extends sfActions
         $delicious_url = 'http://feeds.delicious.com/v2/rss/';
         $name = 'nicolas.ippolito';
         $request = $delicious_url . $name . '/' . $tag . '?count=' . $number . '&sort=date';
-        $rendered = sprintf('<h2>Delicous for %s</h2>', $tag);
+        $rendered = '<h2>' . sprintf(__('Delicious for %s'), $tag) . '</h2>';
         try {
             $feed = sfFeedPeer::createFromWeb($request, array('adapter' => 'sfCurlAdapter', 'adapter_options' => array('Timeout' => 10)));
         } catch (Exception $e) {

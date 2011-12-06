@@ -4,6 +4,10 @@
         <header/>
         <body>
             <trans-unit>
+                <source>Delicious for %s</source>
+                <target>Delicious pour %s</target>
+            </trans-unit>
+            <trans-unit>
                 <source>Posts tagged with "%s"</source>
                 <target>Billets marqués avec "%s"</target>
             </trans-unit>
