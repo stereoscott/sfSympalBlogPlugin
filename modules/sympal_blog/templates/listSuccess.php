@@ -1,12 +1,10 @@
 <?php //echo get_sympal_breadcrumbs($menuItem, $breadcrumbsTitle) ?>
-
 <div id="two-columns">
-
     <div class="box bottom">
         <h2><?php echo $title ?></h2>
         <?php echo get_partial('sympal_blog/blog_list', array('pager' => $pager, 'menuItem' => $menuItem, 'contents' => $pager->getResults())) ?>
+        <?php if (isset($dtag)) echo $dtag; ?>
     </div>
-
 </div>
 
 <?php slot('sidebar') ?>

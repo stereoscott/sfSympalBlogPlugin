@@ -3,6 +3,9 @@ all:
     internationalized_models:
       sfSympalBlogPost: [title, teaser]
     blog:
+      #dtag:
+        #username: ''
+        #number: ''
       post_history: 20
       sidebar:
         # The widgets (and the order) that will be displayed. Defaults to ALL widgets
