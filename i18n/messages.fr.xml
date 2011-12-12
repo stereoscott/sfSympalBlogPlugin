@@ -4,8 +4,8 @@
         <header/>
         <body>
             <trans-unit>
-                <source>Delicious for %s</source>
-                <target>Delicious pour %s</target>
+                <source>Delicious for "%s" tag</source>
+                <target>Delicious pour le marqueur "%s"</target>
             </trans-unit>
             <trans-unit>
                 <source>Posts tagged with "%s"</source>

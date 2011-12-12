@@ -67,13 +67,13 @@ abstract class Basesympal_blogActions extends sfActions
 	protected function _isOdd($n)
 	{
 		return $n & 1; // 0 = even, 1 = odd
-	}
+    }
+
     protected function _renderDeliciousTag($username, $tag, $number = 20)
     {
         $delicious_url = 'http://feeds.delicious.com/v2/rss/';
-        $name = 'nicolas.ippolito';
-        $request = $delicious_url . $name . '/' . $tag . '?count=' . $number . '&sort=date';
-        $rendered = '<h2>' . sprintf(__('Delicious for %s'), $tag) . '</h2>';
+        $request = $delicious_url . $username . '/' . $tag . '?count=' . $number . '&sort=date';
+        $rendered = '<h2>' . sprintf(__('Delicious for "%s" tag'), $tag) . '</h2>';
         try {
             $feed = sfFeedPeer::createFromWeb($request, array('adapter' => 'sfCurlAdapter', 'adapter_options' => array('Timeout' => 10)));
         } catch (Exception $e) {
@@ -89,7 +89,7 @@ abstract class Basesympal_blogActions extends sfActions
 			$i++;
         }
 		$class = $this->_isOdd($i) == 0 ? "even" : "odd";
-        $rendered .= '<li class="delicious-post ' . $class . '"><a href="http://delicious.com/' . $name . "/" . $tag . '">...</a></li>';
+        $rendered .= '<li class="delicious-post ' . $class . '"><a href="http://delicious.com/' . $username . "/" . $tag . '">...</a></li>';
         $rendered .= "</ul></div></p>";
 
         return $rendered;

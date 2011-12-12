@@ -14,19 +14,14 @@ abstract class Basesympal_blogComponents extends sfComponents
     {
         $config = sfSympalConfig::get('blog', 'sidebar', array());
 
-        if (isset($config['display']))
-        {
+        if (isset($config['display'])) {
             $this->widgets = array();
-            foreach($config['display'] as $name)
-            {
-                if (in_array($name, $config['display']))
-                {
+            foreach($config['display'] as $name) {
+                if (in_array($name, $config['display'])) {
                     $this->widgets[] = $config['widgets'][$name];
                 }
             }
-        }
-        else
-        {
+        } else {
             $this->widgets = $config['widgets'];
         }
     }
@@ -36,11 +31,11 @@ abstract class Basesympal_blogComponents extends sfComponents
      */
     public function executeLatest_posts(sfWebRequest $request)
     {
-        $this->latestPosts = Doctrine::getTable('sfSympalBlogPost')->retrieveLatestPosts(sfConfig::get('app_sympal_config_blog_post_history', '20'));
+        $this->latestPosts = Doctrine_Core::getTable('sfSympalBlogPost')->retrieveLatestPosts(sfConfig::get('app_sympal_config_blog_post_history', '20'));
     }
 
     public function executeMonthly_history(sfWebRequest $request)
     {
-        $this->months = Doctrine::getTable('sfSympalBlogPost')->retrieveMonths();
+        $this->months = Doctrine_Core::getTable('sfSympalBlogPost')->retrieveMonths();
     }
 }
