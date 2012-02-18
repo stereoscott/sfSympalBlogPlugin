@@ -14,11 +14,11 @@
 
     <?php $teaser = $content->getRecord()->getTeaser(); ?>
 
-    <?php $Filter = new sfContentFilterMarkdown(); ?>
+    <?php $filter = new sfContentFilterMarkdown(); ?>
     <?php if('' == $teaser): ?>
-        <?php $teaser = substr(strip_tags($Filter->filter($content->getSlot('body')->render())), 0, 500); ?>
+        <?php $teaser = mb_substr(strip_tags($filter->filter($content->getSlot('body')->render())), 0, 500); ?>
     <?php else: ?>
-        <?php $teaser = $Filter->filter($teaser); ?>
+        <?php $teaser = $filter->filter($teaser); ?>
     <?php endif; ?>
 
     <p><?php echo $teaser ?> [<?php echo link_to(__('read more'), $content->getRoute()) ?>]</p>
